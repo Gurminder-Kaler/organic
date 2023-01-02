@@ -89,12 +89,18 @@ export class UserController {
     @Param('userId', ParseIntPipe) userId: number,
   ) {
     try {
-      let {email} = updateUserDto;
-      // console.log('updateUserDto.email', email);
+      let { email } = updateUserDto;
+      console.log('updateUserDto.email', email);
       return this.userService.findByEmail(email).then((exists) => {
         console.log('exists', exists);
         console.log('userId', userId);
-        if (exists && userId == exists.id) {
+        if (exists && userId !== exists.id) {
+          return {
+            success: false,
+            statusCode: 404,
+            message: messages.Failure.UserAlreadyTaken,
+          };
+        } else if (exists && userId == exists.id) {
           return this.userService.updateAUserServiceFunc(updateUserDto, userId).then((user) => {
             return {
               success: true,
@@ -104,11 +110,14 @@ export class UserController {
             };
           });
         } else {
-          // return {
-          //   success: false,
-          //   statusCode: 404,
-          //   message: messages.Failure.UserAlreadyTaken,
-          // };
+          return this.userService.updateAUserServiceFunc(updateUserDto, userId).then((user) => {
+            return {
+              success: true,
+              statusCode: 200,
+              message: messages.Success.User.Update,
+              data: user
+            };
+          });
         }
       });
     } catch (error) {

@@ -21,8 +21,9 @@ export class UserService {
   }
 
   updateAUserServiceFunc(updateUserDto: UpdateUserDto, userId: number) {
-    this.userRepository.update(userId, updateUserDto);
-    return this.getAUserViaIdServiceFunc(userId);
+    return this.userRepository.update(userId, updateUserDto).then((user) => {
+      return this.getAUserViaIdServiceFunc(userId);
+    });
   }
 
   getAUserViaIdServiceFunc(id: number) {
