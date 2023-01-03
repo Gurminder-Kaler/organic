@@ -17,6 +17,12 @@ export const messages = {
             Delete: "Word Deleted " + S,
             GetAllWords: "Words Found " + S,
         },
+        Answer: {
+            Update: "Answer Updated " + S,
+            Create: "Answer Created " + S,
+            Delete: "Answer Deleted " + S,
+            GetAllAnswers: "Answers Found " + S,
+        },
     },
     Failure: {
         User: {
@@ -27,6 +33,9 @@ export const messages = {
         },
         Users: {
             NotFound: "No Users Found!"
+        },
+        Answer: {
+            NotFound: "No Answer Found!"
         },
         UnAuthorized: "Invalid credentials",
         UserAlreadyTaken: "User already exists",

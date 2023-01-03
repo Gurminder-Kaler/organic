@@ -9,30 +9,109 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" id="theme-styles" />
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
 
 <body>
     <div class="container">
-        <div class="row my-3">
+        <div class="row mt-5">
             <div class="col-12">
-                <div class="card" id="startScreen">
+                <div class="card" id="loginScreen">
+                    <div class="card-body">
+                        <form class="form" method="post" id="loginForm">
+                            <label for="login">
+                                <h3>Login</h3>
+                            </label>
+                            <div class="row">
+                                <div class="col-12">
+                                    <input type="text" class="form-control" name="email" id="loginEmail"
+                                        placeholder="Email" />
+                                </div>
+                                <div class="col-12 my-2">
+                                    <input type="text" class="form-control" name="password" id="loginPassword"
+                                        placeholder="Password" />
+                                </div>
+                                <div class="col-12 my-2">
+                                    <button class="btn btn-sm btn-success mt-2">Login</button>
+                                </div>
+                            </div>
+                        </form>
+                        <hr>
+                        <h3>Or</h3>
+                        <hr>
+                        <form class="form" method="post" id="registerForm">
+                            <label for="login">
+                                <h3>Register</h3>
+                            </label>
+                            <div class="row">
+                                <div class="col-12 my-2">
+                                    <input type="text" class="form-control" name="firstName" id="registerFirstName"
+                                        placeholder="First Name" />
+                                </div>
+                                <div class="col-12 my-2">
+                                    <input type="text" class="form-control" name="lastName" id="registerLastName"
+                                        placeholder="Last Name" />
+                                </div>
+                                <div class="col-12 my-2">
+                                    <input type="text" class="form-control" name="email" id="registerEmail"
+                                        placeholder="Email" />
+                                </div>
+                                <div class="col-12 my-2">
+                                    <input type="text" class="form-control" name="password" id="registerPassword"
+                                        placeholder="Password" />
+                                </div>
+                                <div class="col-12 my-2">
+                                    <button class="btn btn-sm btn-success mt-2">Register</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <div class="card" id="startScreen">
+                <div class="card d-none" id="startScreen">
                     <div class="card-body d-flex text-center  align-items-center justify-content-center"
                         style="min-height: 250px;">
-                        <a href="javascript:void(0)" id="startBtn" class="text-success" style="text-decoration: none;">
-                            <h1 class="col-12">
-                                Start</h1>
-                        </a>
+                        <div class="row">
+                            <div class="col-12 my-3">
+                                <a href="javascript:void(0)" id="startBtn" class="text-success"
+                                    style="text-decoration: none;">
+                                    <h2 class="col-12">
+                                        Start <i class="fa fa-play"></i></h2>
+                                </a>
+                            </div>
+                            <div class="col-12 my-3">
+                                <a href="javascript:void(0)" id="optionBtn" class="text-warning"
+                                    style="text-decoration: none;">
+                                    <h2 class="col-12">
+                                        Options <i class="fa fa-cog"></i></h2>
+                                </a>
+                            </div>
+                            <div class="col-12 my-3">
+                                <a href="javascript:void(0)" id="logoutBtn" class="text-danger"
+                                    style="text-decoration: none;">
+                                    <h2 class="col-12">
+                                        Logout <i class="fa fa-power-off"></i></h2>
+                                </a>
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
                 <div class="card d-none" id="gameScreen">
                     <div class="card-header">
-                        <h2>Word Game <span id="timer" class="float-end animate__animated animate__fadeInUp">70s</span>
+                        <h2>Type the Word Game <span id="timer"
+                                class="float-end animate__animated animate__fadeInUp">70s</span>
                         </h2>
-                        <p><a href="javascript:void(0)" id="pausePlayBtn"><span
-                                    class="float-end text-danger">Pause</span></a></p>
+                        <div class="row">
+                            <div class="col-12">
+                                <a href="javascript:void(0)" id="pausePlayBtn">
+                                    <span class="float-end text-danger"><i class="fa fa-pause"></i> Pause</span>
+                                </a>
+                                <a class="pull-left" href="javascript:void(0)" id="quitBtn">
+                                    <span class="float-end text-danger"><i class="fa fa-sign-out"></i> Quit</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -42,40 +121,119 @@
                                 </h4>
                             </div>
                         </div>
-                        <form action="" class="form">
-                            <input type="text" id="answer" placeholder="Enter the word and press enter..."
-                                class="form-control" />
+                        <form action="#" class="form">
+                            <div class="row">
+                                <div class="col-9">
+                                    <input type="text" id="answer" placeholder="Enter the word and press enter..."
+                                        class="form-control" />
+                                </div>
+                                <div class="col-3">
+                                    <button type="button" id="answerBtn"
+                                        class="btn btn-sm btn-block btn-primary btn-outline"><i
+                                            class="fa fa-send"></i></button>
+                                </div>
+                            </div>
                         </form>
+                    </div>
+                </div>
+                <div class="card my-2" id="resultScreen">
+                    <div class="card-header">
+                        <h4>Your Result</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card my-2" id="optionScreen">
+                    <a href="javascript:void(0)" id="optionBackBtn" class="text-danger"> <i
+                            class="fa fa-arrow-left"></i> Back</a>
+                    <div class="card-header">
+                        <h4>Options <i class="fa fa-cog"></i> </h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
-        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
     <script>
         $(document).ready(function () {
             let pauseBool = false;
+            const API_URL = "http://localhost:8000";
             let words = [];
             let wordChangeTime = 10;
             let currentWordIndex = 0;
+            let isLoggedIn = false;
+            let globalTimer = 60;
+            if (localStorage.getItem('token')) {
+                isLoggedIn = true;
+            }
 
-            let globalTimer = 0;
+            if (isLoggedIn) {
+                $('#loginScreen').addClass('d-none');
+                $('#gameScreen').addClass('d-none');
+                $('#startScreen').removeClass('d-none');
+                $('#resultScreen').addClass('d-none');
+                $('#optionScreen').addClass('d-none');
+            } else {
+                $('#loginScreen').removeClass('d-none');
+                $('#gameScreen').addClass('d-none');
+                $('#startScreen').addClass('d-none');
+                $('#resultScreen').addClass('d-none');
+                $('#optionScreen').addClass('d-none');
+            }
+
             let fetchWords = () => {
-                $.get('http://localhost:8000/word').then(function (res) {
+                $.get(API_URL + '/word').then(function (res) {
                     console.log('resoobsne', res.data[1]);
                     let w = res.data;
                     for (let i = 0; i < w.length; i++) {
                         words.push(w[i]);
                     }
-                    globalTimer = wordChangeTime * words.length
+                    // globalTimer = wordChangeTime * words.length
                 });
             }
+
+            let saveAnswer = (user_id, word_id, answer, correct) => {
+                let payload = { answer: answer, word_id: word_id, user_id: user_id, correct: correct };
+                console.log('opayload', payload);
+                $.post(API_URL + '/answer', payload, function (res) {
+                    console.log('res', res);
+                    currentWordIndex += 1;
+                });
+            }
+
+            $('#loginForm').on('submit', function (e) {
+                e.preventDefault();
+                $.post(API_URL + '/auth/login', {
+                    email: $('#loginEmail').val(),
+                    password: $('#loginPassword').val()
+                }).then(function (res) {
+                    console.log('res', res);
+                    localStorage.setItem('token', res.token);
+                    localStorage.setItem('user', JSON.stringify({ email: res.email, password: res.password }));
+                    $('#loginScreen').addClass('d-none');
+                    $('#registerScreen').addClass('d-none');
+                    $('#gameScreen').addClass('d-none');
+                    $('#startScreen').removeClass('d-none');
+                    $('#optionScreen').addClass('d-none');
+                });
+            });
+
             $('#startBtn').on('click', function (e) {
+                $('#loginScreen').addClass('d-none');
+                $('#registerScreen').addClass('d-none');
                 $('#gameScreen').removeClass('d-none');
                 $('#startScreen').addClass('d-none');
+                $('#optionScreen').addClass('d-none');
                 $('#timer').text('-');
                 fetchWords();
                 var interval = setInterval(function (e) {
@@ -92,35 +250,89 @@
                             console.log('asdsa');
                             $('#timer').addClass("text-danger");
                             if (globalTimer == 0) {
-                                Swal.fire(
-                                    'Shuckssss!',
-                                    'GAME OVER!',
-                                    'warning'
-                                );
                                 clearInterval(interval);
+                                Swal.fire({
+                                    title: 'Shuckssss! GAME OVER!!',
+                                    type: 'warning',
+                                    confirmButtonText: 'OK',
+                                }).then((result) => {
+                                    window.location.reload();
+                                })
                             }
                         }
                     } else {
                         $('#gameBox').css({ "display": "none" });
-                        // $('#startScreen').removeClass('d-none');
                     }
                 }, 1000);
+            });
+
+
+            $('#optionBackBtn').on('click', function () {
+                $('#loginScreen').addClass('d-none');
+                $('#registerScreen').addClass('d-none');
+                $('#gameScreen').addClass('d-none');
+                $('#startScreen').removeClass('d-none');
+                $('#optionScreen').addClass('d-none');
+            });
+
+            $('#logoutBtn').on('click', function () {
+                Swal.fire({
+                    title: 'Shuckssss! GAME OVER!!',
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'OK',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        localStorage.removeItem('token');
+                        window.location.reload();
+                    }
+                })
+
+            });
+
+            $('#optionBtn').on('click', function () {
+                $('#loginScreen').addClass('d-none');
+                $('#registerScreen').addClass('d-none');
+                $('#gameScreen').addClass('d-none');
+                $('#startScreen').addClass('d-none');
+                $('#optionScreen').removeClass('d-none');
+            });
+
+            $('#quitBtn').on('click', function () {
+                Swal.fire({
+                    title: 'Give In!',
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Quit',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        localStorage.removeItem('token');
+                        window.location.reload();
+                    }
+                });
+
             });
             $('#pausePlayBtn').on('click', function () {
                 pauseBool = !pauseBool;
                 let k = "";
                 if (pauseBool) {
-                    k = '<span class="float-end text-success">Play</span >';
+                    k = '<span class="float-end text-success"><i class="fa fa-play"></i>   Resume</span >';
                 } else {
-                    k = '<span class="float-end text-danger">Pause</span >';
+                    k = '<span class="float-end text-danger"><i class="fa fa-pause"></i>   Pause</span >';
                 }
                 $(this).html(k);
             });
-            $('#answer').on('keypress', function (e) {
-                console.log(e.keyCode);
-                if (e.keyCode == 13) {
-                    //enter Pressed
-                    e.preventDefault();
+
+            $('#answerBtn').on('click', function (e) {
+                let answer = $('#answer').val();
+                let word = words[currentWordIndex].title;
+                console.log('a', typeof (answer));
+                console.log('b', typeof (word));
+                if (answer.match(word)) {
+                    console.log('abc');
+                    saveAnswer(2, words[currentWordIndex].id, answer, true);
+                } else {
+                    saveAnswer(2, words[currentWordIndex].id, answer, false);
                 }
             });
         });

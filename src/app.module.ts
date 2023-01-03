@@ -7,9 +7,13 @@ import { UserModule } from './user/user.module';
 import { ProfileModule } from './profile/profile.module';
 import { WordModule } from './word/word.module';
 import { Word } from './word/entity/word.entity';
+import { AnswerController } from './answer/answer.controller';
+import { AnswerService } from './answer/answer.service';
+import { AnswerModule } from './answer/answer.module';
+import { Answer } from './answer/entity/answer.entity';
 
 @Module({
-  controllers: [AppController],
+  controllers: [AppController, AnswerController],
   imports: [
     UserModule,
     TypeOrmModule.forRoot({
@@ -19,12 +23,13 @@ import { Word } from './word/entity/word.entity';
       username: 'root',
       password: null,
       database: 'organic',
-      entities: [User, Word],
+      entities: [User, Word, Answer],
       synchronize: true,
     }),
     AuthModule,
     ProfileModule,
     WordModule,
-  ],
+    AnswerModule,
+  ]
 })
 export class AppModule {}
